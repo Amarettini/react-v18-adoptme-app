@@ -8,6 +8,11 @@ import Modal from "./Modal";
 
 const Details = () => {
   const { id } = useParams();
+
+  if (!id) {
+    throw new Error("Missing id parameter in URL.");
+  }
+
   const results = useQuery(["details", id], fetchPet);
   const [showModal, setShowModal] = useState(false);
 
@@ -19,7 +24,10 @@ const Details = () => {
     );
   }
 
-  const pet = results.data.pets[0];
+  const pet = results?.data?.pets[0];
+  if (!pet) {
+    throw new Error("No pet returned by API.");
+  }
 
   return (
     <div className="details">
@@ -45,10 +53,10 @@ const Details = () => {
   );
 };
 
-export default function DetailsErrorBoundary(props) {
+export default function DetailsErrorBoundary() {
   return (
     <ErrorBoundary>
-      <Details {...props} />
+      <Details />
     </ErrorBoundary>
   );
 }
