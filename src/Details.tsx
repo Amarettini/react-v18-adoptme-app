@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchPet from "./fetchPet";
 import Carousel from "./Carousel";
@@ -17,6 +17,7 @@ const Details = () => {
 
   const results = useQuery(["details", id], fetchPet);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   if (results.isLoading) {
@@ -48,6 +49,7 @@ const Details = () => {
                 <button
                   onClick={() => {
                     dispatch(adopt(pet));
+                    navigate("/");
                   }}
                 >
                   Yes
