@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import useBreedList from "./useBreedList";
 import Results from "./Results";
 import fetchSearch from "./fetchSearch";
 import { useQuery } from "@tanstack/react-query";
-import { Animal } from "./APIResponsesTypes";
+import { Animal, Pet } from "./APIResponsesTypes";
+import { RootState } from "./store";
 
 const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -13,7 +15,10 @@ const SearchParams = () => {
     animal: "" as Animal,
     breed: "",
   });
-  const [animal, setAnimal] = useState("" as Animal);
+  const adoptedPet = useSelector<RootState, Pet | null>(
+    (state) => state.adoptedPet.value,
+  );
+  const [animal, setAnimal] = useState(null as Animal | null);
   const [breeds] = useBreedList(animal);
 
   const results = useQuery(["search", requestParams], fetchSearch);
@@ -33,6 +38,11 @@ const SearchParams = () => {
           setRequestParams(obj);
         }}
       >
+        {adoptedPet ? (
+          <div className="pet image-container">
+            <img src={adoptedPet.images[0]} alt={adoptedPet.name} />
+          </div>
+        ) : null}
         <label htmlFor="location">
           Location
           <input id="location" name="location" placeholder="Location" />

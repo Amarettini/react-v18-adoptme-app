@@ -5,6 +5,8 @@ import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import { useState } from "react";
 import Modal from "./Modal";
+import { useDispatch } from "react-redux";
+import { adopt } from "./adoptedPetSlice";
 
 const Details = () => {
   const { id } = useParams();
@@ -15,6 +17,7 @@ const Details = () => {
 
   const results = useQuery(["details", id], fetchPet);
   const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
 
   if (results.isLoading) {
     return (
@@ -42,7 +45,13 @@ const Details = () => {
             <div>
               <h1>Would you like to adopt {pet.name}?</h1>
               <div className="buttons">
-                <button>Yes</button>
+                <button
+                  onClick={() => {
+                    dispatch(adopt(pet));
+                  }}
+                >
+                  Yes
+                </button>
                 <button onClick={() => setShowModal(false)}>No</button>
               </div>
             </div>
