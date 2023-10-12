@@ -1,6 +1,6 @@
 import { QueryFunction } from "@tanstack/react-query";
-import { Animal, PetAPIResponse } from "./APIResponsesTypes";
-import { RequestParams } from "./SearchParams";
+import { Animal, PetAPIResponse } from "../types/APIResponsesTypes";
+import { RequestParams } from "../components/SearchParams";
 
 const fetchSearch: QueryFunction<PetAPIResponse, ["search", RequestParams]> = async ({
   queryKey,

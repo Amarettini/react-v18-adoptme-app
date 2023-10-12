@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Pet } from "./APIResponsesTypes";
+import { Pet } from "../types/APIResponsesTypes";
 
 interface AdoptedPetState {
   value: Pet | null;

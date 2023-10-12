@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import Pet from "./Pet";
-import { Pet as PetType } from "./APIResponsesTypes";
+import { Pet as PetType } from "../types/APIResponsesTypes";
 
 interface Props {
   pets: PetType[];

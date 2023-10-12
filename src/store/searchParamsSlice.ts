@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { RequestParams } from "./SearchParams";
+import { RequestParams } from "../components/SearchParams";
 
 interface searchParamsState {
   value: RequestParams;

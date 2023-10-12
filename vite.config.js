@@ -7,5 +7,8 @@ export default defineConfig({
   test: {
     environment: "happy-dom",
     setupFiles: ["./setupVitest.js"],
+    coverage: {
+      reportsDirectory: "../coverage",
+    },
   },
 });

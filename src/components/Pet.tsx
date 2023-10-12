@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import { Animal } from "./APIResponsesTypes";
+import { Animal } from "../types/APIResponsesTypes";
 
 // Pet component should take a pet object as a whole prop instead of losse properties of Pet
 interface Props {

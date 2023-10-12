@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import useBreedList from "./useBreedList";
+import useBreedList from "../hooks/useBreedList";
 import Results from "./Results";
-import fetchSearch from "./fetchSearch";
+import fetchSearch from "../fetch/fetchSearch";
 import { useQuery } from "@tanstack/react-query";
-import { Animal } from "./APIResponsesTypes";
-import { RootState } from "./store";
-import { all as setAllSearchParams } from "./searchParamsSlice";
+import { Animal } from "../types/APIResponsesTypes";
+import { RootState } from "../store/store";
+import { all as setAllSearchParams } from "../store/searchParamsSlice";
 
 const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
 

@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import useBreedList from "../useBreedList";
+import useBreedList from "../hooks/useBreedList";
 import { renderHook, waitFor } from "@testing-library/react";
 
 const queryClient = new QueryClient({

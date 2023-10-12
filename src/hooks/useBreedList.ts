@@ -1,6 +1,6 @@
 import { QueryStatus, useQuery } from "@tanstack/react-query";
-import fetchBreedList from "./fetchBreedList";
-import { Animal } from "./APIResponsesTypes";
+import fetchBreedList from "../fetch/fetchBreedList";
+import { Animal } from "../types/APIResponsesTypes";
 
 // Param `animal` is null when `SearchParams` component is mounted, run query when animal is
 // selected by user
