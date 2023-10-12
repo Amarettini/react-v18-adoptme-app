@@ -22,7 +22,6 @@ test("lets users click on thumbnails to make them the hero img", async () => {
 
     const thumbnails = await carousel.findAllByTestId(/thumbnail/);
     const nonActiveThumbs = thumbnails.filter((thumbnail) => !(thumbnail === targetThumb));
-    console.log(nonActiveThumbs.length);
 
     // non-target thumbnails should not have active class
     expect(nonActiveThumbs.map((thumb) => thumb.classList.contains("active"))).toEqual([
